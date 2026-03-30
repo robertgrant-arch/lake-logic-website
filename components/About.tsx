@@ -20,12 +20,6 @@ export default function About() {
             </div>
 
             {/* Floating accent card */}
-            <div className="absolute -bottom-8 -right-6 bg-navy-700 text-white rounded-2xl p-5 shadow-2xl max-w-[200px]">
-              <div className="text-3xl font-display font-bold text-water-400 mb-0.5">20+</div>
-              <div className="text-sm font-medium text-white/80 leading-snug">Years of waterbody expertise in the Midwest</div>
-            </div>
-
-            {/* Decorative element */}
             <div className="absolute -top-6 -left-6 w-32 h-32 rounded-full bg-water-500/10 border border-water-400/20" />
             <div className="absolute -top-3 -left-3 w-16 h-16 rounded-full bg-water-500/15 border border-water-400/25" />
           </div>
