@@ -1,12 +1,5 @@
 import Image from 'next/image';
 
-const stats = [
-  { value: '20+', label: 'Years of Experience', sub: 'Serving the KC metro since 2004' },
-  { value: '500+', label: 'Projects Completed', sub: 'Ponds, lakes, and fisheries' },
-  { value: '98%', label: 'Client Retention Rate', sub: 'Annual program renewals' },
-  { value: '1,200+', label: 'Acres Under Management', sub: 'Across the Midwest' },
-];
-
 const differentiators = [
   {
     icon: (
@@ -95,20 +88,6 @@ export default function WhyChooseUs() {
             We don't just treat water — we manage ecosystems. Here's what sets Lake Logic apart from
             general landscaping contractors and one-size-fits-all pond services.
           </p>
-        </div>
-
-        {/* Stats bar */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden mb-16 reveal">
-          {stats.map((stat, i) => (
-            <div
-              key={stat.label}
-              className={`bg-navy-800/60 backdrop-blur-sm p-8 text-center reveal delay-${i * 100 + 100}`}
-            >
-              <div className="font-display text-4xl md:text-5xl font-bold gradient-text mb-1">{stat.value}</div>
-              <div className="text-white font-semibold text-sm mb-1">{stat.label}</div>
-              <div className="text-white/45 text-xs">{stat.sub}</div>
-            </div>
-          ))}
         </div>
 
         {/* Differentiators grid */}
