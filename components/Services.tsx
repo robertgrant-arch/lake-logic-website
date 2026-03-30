@@ -66,7 +66,7 @@ const services = [
     ),
     label: 'Fountain & Aeration\nSolutions',
     tagline: 'Elevate your waterbody aesthetically and biologically with premium aeration.',
-    image: 'https://images.unsplash.com/photo-1428693789766-c3ccab43dcd7?auto=format&fit=crop&w=700&q=75',
+    image: 'https://images.unsplash.com/photo-1696622460849-7fbe2e5fe670?auto=format&fit=crop&w=700&q=75',
     imageAlt: 'Beautiful decorative fountain in a lake',
     bullets: [
       'Custom Design & Professional Installation',
