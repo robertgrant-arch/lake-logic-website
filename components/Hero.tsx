@@ -105,28 +105,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* Trust indicators */}
-      <div className="absolute bottom-20 left-0 right-0 z-10 hidden md:block">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div
-            className="flex items-center justify-center gap-8"
-            style={{ animation: 'fadeUp 0.7s ease-out 0.8s both' }}
-          >
-            {[
-              { icon: '🏆', label: '20+ Years Experience' },
-              { icon: '💧', label: 'Water Quality Experts' },
-              { icon: '🐟', label: 'Fisheries Certified' },
-              { icon: '📍', label: 'Kansas City Based' },
-            ].map((item) => (
-              <div key={item.label} className="flex items-center gap-2 text-white/70">
-                <span className="text-lg">{item.icon}</span>
-                <span className="text-xs font-medium tracking-wide">{item.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
     </section>
   );
 }
