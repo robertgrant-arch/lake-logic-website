@@ -10,8 +10,9 @@ export default function About() {
             {/* Main image */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
               <Image
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80"
-                alt="Clear, well-managed pond with lush shoreline"
+                            src="https://lh3.googleusercontent.com/d/1jfX3ufWB7LCq9WJxWMeqjz-BKqit_glK=s1200"
+                            alt="Lake Logic team member holding a trophy largemouth bass"
+                            unoptimized
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -95,18 +96,18 @@ export default function About() {
         <div className="mt-20 grid grid-cols-3 gap-4 reveal">
           {[
             {
-              src: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=75',
-              alt: 'Natural lake with fog at sunrise',
+                            src: 'https://lh3.googleusercontent.com/d/1QWNnknpX71zwPjNEA29-5pZZGmPGGX9v=s800',
+                            alt: 'Picturesque summer lake with calm shoreline',
               caption: 'Natural Ecosystem Balance',
             },
             {
-              src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=75',
-              alt: 'Mountain lake with crystal clear water',
+                            src: 'https://lh3.googleusercontent.com/d/1x1uLnh5KHmswlq5z_DcsF2ZIaHmMdWYT=s800',
+                            alt: 'Fountain in pond at sunset',
               caption: 'Water Clarity Restoration',
             },
             {
-              src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=75',
-              alt: 'Peaceful pond with green reflections',
+                            src: 'https://lh3.googleusercontent.com/d/1V6sKODdicK2VenFjdPLVE4cULAACWwal=s800',
+                            alt: 'Cattails by the lake water',
               caption: 'Shoreline Stewardship',
             },
           ].map((img) => (
@@ -115,6 +116,7 @@ export default function About() {
                 src={img.src}
                 alt={img.alt}
                 fill
+                                  unoptimized
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
