@@ -107,11 +107,13 @@ export default function Nav() {
               className="text-white/80 hover:text-white py-3 text-base font-medium border-b border-white/10 transition-colors"
             >
               {link.label}
-      
+            </a>
+          ))}
         </nav>
-                              📞 (816) 810-1081
+
+        <div className="px-6 py-4 flex flex-col gap-3">
           <a href="tel:8168101081" className="text-white/90 hover:text-white text-center py-2 font-medium">
-              📞 (816) 810-1081
+            (816) 810-1081
           </a>
           <a
             href="#contact"
