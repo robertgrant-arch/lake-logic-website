@@ -1,10 +1,10 @@
-export default function Footer() {
+import Image from 'next/image';  export default function Footer() {
   return (
     <footer className="bg-navy-900 text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-2">
-            <div className="font-display font-bold text-2xl mb-2">Lake Logic</div>
+            <div className="font-display font-bold text-2xl mb-2"><Image src="https://lh3.googleusercontent.com/d/1YM4slGBi2FIO07GmVyCfUIGMohC73kw_=s400" alt="Lake Logic" width={160} height={50} className="h-10 w-auto object-contain brightness-0 invert mb-2" unoptimized /></div>
             <p className="text-white/50 text-sm leading-relaxed mb-4 max-w-xs">Professional pond and lake management across the Kansas City metro. Cleaner water. Healthier ecosystems. Better experiences.</p>
             <a href="tel:8168101081" className="text-water-400 font-bold text-lg">(816) 810-1081</a>
           </div>
