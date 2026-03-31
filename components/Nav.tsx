@@ -111,7 +111,7 @@ export default function Nav() {
         </nav>
                               📞 (816) 810-1081
           <a href="tel:8168101081" className="text-white/90 hover:text-white text-center py-2 font-medium">
-            \ud83d\udcde (816) 810-1081
+              📞 (816) 810-1081
           </a>
           <a
             href="#contact"
