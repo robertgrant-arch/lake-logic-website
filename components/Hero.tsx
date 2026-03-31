@@ -6,8 +6,9 @@ export default function Hero() {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2070&q=85"
-          alt="Pristine mountain lake with clear water"
+                    src="https://lh3.googleusercontent.com/d/1pER5Ba_wiZkg4kYa2squtu6U4LLzeUyi=s2000"
+                    alt="Aerial view of a serene lake with trail along shoreline"
+                    unoptimized
           fill
           className="object-cover object-center"
           priority
