@@ -13,7 +13,7 @@ const services = [
     ),
     label: 'Pond & Lake\nManagement',
     tagline: 'Comprehensive waterbody health from the surface to the sediment.',
-    image: 'https://images.unsplash.com/photo-1440342359743-84fcb8c21f21?auto=format&fit=crop&w=700&q=75',
+    image: 'https://lh3.googleusercontent.com/d/1QWNnknpX71zwPjNEA29-5pZZGmPGGX9v=s800',
     imageAlt: 'Healthy clear pond with natural shoreline',
     bullets: [
       'Algae & Aquatic Weed Control',
@@ -39,7 +39,7 @@ const services = [
     ),
     label: 'Fisheries\nManagement',
     tagline: 'Build trophy-class fisheries with data-driven science and stocking strategy.',
-    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=700&q=75',
+    image: 'https://lh3.googleusercontent.com/d/1uTO4jvn5MFcTvSgnzEhqbZFJU3hFMvNs=s800',
     imageAlt: 'Fishing on a managed lake at sunrise',
     bullets: [
       'Electrofishing Population Surveys',
@@ -66,7 +66,7 @@ const services = [
     ),
     label: 'Fountain & Aeration\nSolutions',
     tagline: 'Elevate your waterbody aesthetically and biologically with premium aeration.',
-    image: 'https://images.unsplash.com/photo-1696622460849-7fbe2e5fe670?auto=format&fit=crop&w=700&q=75',
+    image: 'https://lh3.googleusercontent.com/d/1x1uLnh5KHmswlq5z_DcsF2ZIaHmMdWYT=s800',
     imageAlt: 'Beautiful decorative fountain in a lake',
     bullets: [
       'Custom Design & Professional Installation',
@@ -93,7 +93,7 @@ const services = [
     ),
     label: 'Annual Management\nPrograms',
     tagline: 'Year-round peace of mind with structured care programs built for every need.',
-    image: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=700&q=75',
+    image: 'https://lh3.googleusercontent.com/d/1t5v99h59vM_J8fG1Xirkckodsa-MGGNm=s800',
     imageAlt: 'Serene lake in all seasons',
     bullets: [
       'Essential Care Program — Foundational annual maintenance',
