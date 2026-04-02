@@ -141,7 +141,7 @@ export default function Services() {
                   src={service.image}
                   alt={service.imageAlt}
                   fill
-                  className="object-cover"
+                  className="object-cover" unoptimized
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-navy-900/20 to-transparent" />
