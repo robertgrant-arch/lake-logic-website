@@ -10,8 +10,8 @@ export default function About() {
             {/* Main image */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
               <Image
-                            src="https://lh3.googleusercontent.com/d/1jfX3ufWB7LCq9WJxWMeqjz-BKqit_glK=s1200"
-                            alt="Lake Logic team member holding a trophy largemouth bass"
+                                          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80"
+                                          alt="Beautiful serene lake with green shoreline and clear water"
                             unoptimized
                 fill
                 className="object-cover"
