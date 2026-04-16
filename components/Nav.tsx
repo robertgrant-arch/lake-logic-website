@@ -1,8 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -37,14 +35,9 @@ export default function Nav() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
-            <Image
-              src="https://lh3.googleusercontent.com/d/1YM4s1GB12FTOO7GnVyCfUIGMohC73kw_=s400"
-              alt="Lake Logic Logo"
-              width={200}
-              height={64}
-              className="h-16 w-auto object-contain brightness-0 invert"
-              unoptimized
-            />
+            <span className="font-display text-2xl font-bold text-white tracking-tight">
+              <span className="text-water-400">Lake</span> Logic
+            </span>
           </a>
 
           {/* Desktop Nav */}
