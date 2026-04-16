@@ -1,12 +1,25 @@
-import Image from 'next/image';  export default function Footer() {
+import Image from 'next/image'; export default function Footer() {
   return (
-    <footer className="bg-navy-900 text-white pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <footer className="relative bg-navy-900 text-white pt-16 pb-8 overflow-hidden">
+      {/* Lake background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=2070&q=80"
+          alt="Peaceful lake at dusk"
+          fill
+          className="object-cover opacity-15"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/95 to-navy-900/80" />
+      </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-2">
-            <div className="font-display font-bold text-2xl mb-2"><Image src="https://lh3.googleusercontent.com/d/1YM4slGBi2FIO07GmVyCfUIGMohC73kw_=s400" alt="Lake Logic" width={160} height={50} className="h-10 w-auto object-contain brightness-0 invert mb-2" unoptimized /></div>
+            <div className="font-display font-bold text-2xl mb-2"><Image src="https://lh3.googleusercontent.com/d/1YM4s1GB12FTOO7GnVyCfUIGMohC73kw_=s400" alt="Lake Logic" width={160} height={50} className="h-10 w-auto object-contain brightness-0 invert mb-2" unoptimized /></div>
             <p className="text-white/50 text-sm leading-relaxed mb-4 max-w-xs">Professional pond and lake management across the Kansas City metro. Cleaner water. Healthier ecosystems. Better experiences.</p>
             <a href="tel:8168101081" className="text-water-400 font-bold text-lg">(816) 810-1081</a>
+            <br />
+            <a href="mailto:info@lake-logic.com" className="text-water-400/80 text-sm hover:text-water-400 transition-colors">info@lake-logic.com</a>
           </div>
           <div>
             <div className="font-semibold text-sm mb-4 text-white/80 uppercase tracking-wider">Services</div>
@@ -18,7 +31,7 @@ import Image from 'next/image';  export default function Footer() {
           </div>
         </div>
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between gap-4 text-white/30 text-xs">
-          <p>© {new Date().getFullYear()} Lake Logic. All rights reserved. Licensed & Insured.</p>
+          <p>&copy; {new Date().getFullYear()} Lake Logic. All rights reserved. Licensed & Insured.</p>
           <p>Serving the Kansas City Metropolitan Area</p>
         </div>
       </div>
