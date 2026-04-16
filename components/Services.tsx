@@ -93,8 +93,8 @@ const services = [
     ),
     label: 'Annual Management\nPrograms',
     tagline: 'Year-round peace of mind with structured care programs built for every need.',
-    image: 'https://lh3.googleusercontent.com/d/1t5v99h59vM_J8fG1Xirkckodsa-MGGNm=s800',
-    imageAlt: 'Serene lake in all seasons',
+        image: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=1200&q=80',
+        imageAlt: 'Professional managed lake with crystal clear water and natural shoreline',
     bullets: [
       'Essential Care Program — Foundational annual maintenance',
       'Premier Pond Program — Enhanced bi-monthly service',
