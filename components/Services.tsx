@@ -98,7 +98,7 @@ const services = [
     ),
     label: 'Annual Management\nPrograms',
     tagline: 'Year-round peace of mind with structured care programs built for every need.',
-        image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80',
+        image: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80',
         imageAlt: 'Professional managed lake with crystal clear water and natural shoreline',
     bullets: [
       'Essential Care Program — Foundational annual maintenance',
