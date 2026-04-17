@@ -39,8 +39,8 @@ export default function Footer() {
       {/* Lake background image */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=2070&q=80"
-          alt="Peaceful lake at dusk"
+          src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=2070&q=80"
+          alt="Serene lake with calm reflections at sunset"
           fill
           className="object-cover opacity-15"
           sizes="100vw"
