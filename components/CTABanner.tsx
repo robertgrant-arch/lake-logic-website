@@ -38,7 +38,7 @@ export default function CTABanner() {
   return (
     <section id="contact" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0">
-        <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=2070&q=80" alt="Calm lake at sunset" fill className="object-cover" sizes="100vw" />
+                <Image src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=2070&q=80" alt="Calm lake at sunset" fill className="object-cover" sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-900/92 via-navy-800/85 to-navy-900/92" />
       </div>
       <div className="relative z-10 max-w-6xl mx-auto px-6">
