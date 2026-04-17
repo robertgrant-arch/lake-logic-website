@@ -10,8 +10,8 @@ export default function About() {
             {/* Main image */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
               <Image
-                                          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80"
-                                          alt="Beautiful serene lake with green shoreline and clear water"
+                                          src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80"
+                                          alt="Calm lake surrounded by lush green trees and natural shoreline"
                             unoptimized
                 fill
                 className="object-cover"
