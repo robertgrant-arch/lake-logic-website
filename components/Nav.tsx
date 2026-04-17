@@ -54,7 +54,7 @@ export default function Nav() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="font-display text-2xl font-bold text-white tracking-tight">
+                          <span className="font-display text-3xl font-bold text-white tracking-tight">
               <span className="text-water-400">Lake</span> Logic
             </span>
           </Link>
