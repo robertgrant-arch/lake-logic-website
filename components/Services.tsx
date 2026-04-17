@@ -1,8 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const services = [
   {
     id: 'pond-lake',
+    href: '/services/pond-lake-management',
     icon: (
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
         <path d="M4 28c4-8 8-4 12-8s8-4 12 0 4 8 8 0" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" />
@@ -29,6 +31,7 @@ const services = [
   },
   {
     id: 'fisheries',
+    href: '/services/fisheries-management',
     icon: (
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
         <path d="M8 20c4-6 8-8 14-6 4 1.5 8 6 14 6-6 0-10 4.5-14 6-6 2-10 0-14-6z" stroke="#3B82F6" strokeWidth="2.5" fill="#3B82F6" fillOpacity="0.12" />
@@ -55,6 +58,7 @@ const services = [
   },
   {
     id: 'aeration',
+    href: '/services/fountains-aeration',
     icon: (
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
         <path d="M20 32V20M20 20c0 0-6-6-6-12s12-12 12-12" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" />
@@ -82,6 +86,7 @@ const services = [
   },
   {
     id: 'annual',
+    href: '/services/pond-lake-management',
     icon: (
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
         <rect x="6" y="8" width="28" height="26" rx="4" stroke="#3B82F6" strokeWidth="2.5" fill="#3B82F6" fillOpacity="0.08" />
@@ -175,16 +180,22 @@ export default function Services() {
                 </ul>
 
                 {/* CTA link */}
-                <div className="mt-7 pt-5 border-t border-slate-100">
-                  <a
-                    href="#contact"
+                <div className="mt-7 pt-5 border-t border-slate-100 flex items-center justify-between gap-3">
+                  <Link
+                    href={service.href}
                     className="inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-200"
                     style={{ color: service.accent }}
                   >
-                    Get a Quote for This Service
+                    Learn More
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
+                  </Link>
+                  <a
+                    href="#contact"
+                    className="text-sm font-semibold text-slate-500 hover:text-navy-700 transition-colors"
+                  >
+                    Get Quote
                   </a>
                 </div>
               </div>
@@ -194,13 +205,22 @@ export default function Services() {
 
         {/* Bottom note */}
         <div className="mt-12 text-center reveal">
-          <p className="text-slate-500 text-sm">
+          <p className="text-slate-500 text-sm mb-5">
             Not sure which service you need?{' '}
             <a href="tel:8168101081" className="text-water-600 font-semibold hover:underline">
               Call us at (816) 810-1081
             </a>{' '}
             — we'll assess your waterbody at no charge.
           </p>
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 bg-navy-700 hover:bg-navy-600 text-white font-semibold text-sm px-6 py-3 rounded-full transition-all"
+          >
+            View All Services
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>
