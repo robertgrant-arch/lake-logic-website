@@ -28,7 +28,7 @@ function mdToHtml(md: string): string {
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
     .replace(/^[-*] (.+)$/gm, '<li>$1</li>')
     .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
-    .replace(/(<li>.*<\/li>)/s, '<ul class="cw-ul">$1</ul>')
+        .replace(/(<li>[\s\S]*<\/li>)/, '<ul class="cw-ul">$1</ul>')
     .replace(/\n{2,}/g, '<br/><br/>')
     .replace(/\n/g, '<br/>');
   return html;
