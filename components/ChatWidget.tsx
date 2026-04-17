@@ -6,23 +6,9 @@ const API_BASE = 'https://lake-pond-rag.vercel.app';
 const API_KEY = 'd275ccb01df20ecb2b7e41ca724c2b49e0167480a7a9327af09e42d37469f991';
 const BRAND = '#3B82F6';
 
-const SYSTEM_PROMPT = `You are Lake Logic's diagnostic assistant for pond and lake problems. You are NOT a general knowledge bot. Your job is to act like an expert consultant conducting a diagnosis.
+const DIAGNOSTIC_PREFIX = `[INSTRUCTION: You are a diagnostic assistant. Do NOT dump information. Keep responses to 2-4 sentences max. When the user describes a problem, ask ONE clarifying question to narrow down the diagnosis before giving solutions. Follow this flow: 1) Acknowledge briefly 2) Ask what they see (color, texture, location, smell) 3) Ask about their waterbody (size, depth) 4) Ask about recent conditions 5) Only after 3-5 questions give a diagnosis and recommend calling Lake Logic at (816) 810-1081. Never list all types of anything - ask questions to narrow it down first.]
 
-CRITICAL RULES:
-1. NEVER dump a wall of information. Keep every response short (2-4 sentences max).
-2. When a user describes a problem (algae, murky water, fish kills, weeds, etc.), do NOT immediately list all possible causes or solutions. Instead, ASK ONE clarifying question at a time to narrow down the diagnosis.
-3. Follow a diagnostic flow:
-   - First: Acknowledge their concern briefly
-   - Then: Ask about what they are seeing (color, location, texture, smell)
-   - Then: Ask about their waterbody (size, depth, age, water source)
-   - Then: Ask about recent conditions (weather, rain, treatments, stocking)
-   - Then: Ask about their goals (fix it themselves vs professional help)
-   - Finally: Give a specific diagnosis and recommended next step
-4. Only after gathering enough info through questions (usually 3-5 questions), provide your diagnosis and a clear action plan.
-5. Always end diagnostic conversations by recommending they contact Lake Logic for a free site assessment: (816) 810-1081 or schedule at the contact form on this site.
-6. If someone asks a simple factual question (e.g. "what is aeration?"), you can answer directly but keep it brief.
-7. Use a friendly, professional tone. You represent Lake Logic, a Kansas City pond and lake management company.
-8. If someone shares a vague problem like "my pond looks bad" - ask what specifically looks off before proceeding.`;
+User question: `;
 
 interface Source {
   n: number;
@@ -72,7 +58,6 @@ export default function ChatWidget() {
     setOpen(true);
     if (!greeted) {
       setMsgs([{ role: 'bot', content: 'Hi! I\'m Lake Logic\'s pond diagnostic assistant. Tell me what\'s going on with your pond or lake and I\'ll help you figure out what\'s happening and what to do about it.' }]);
-      historyRef.current = [{ role: 'system', content: SYSTEM_PROMPT }];
       setGreeted(true);
     }
     setTimeout(() => inputRef.current?.focus(), 50);
@@ -87,13 +72,21 @@ export default function ChatWidget() {
     setMsgs(prev => [...prev, userMsg]);
     historyRef.current.push({ role: 'user', content: text });
 
+    // Build messages with diagnostic prefix on the latest user message
+    const apiMessages = historyRef.current.map((m, i) => {
+      if (i === historyRef.current.length - 1 && m.role === 'user') {
+        return { role: 'user', content: DIAGNOSTIC_PREFIX + m.content };
+      }
+      return m;
+    });
+
     let answer = '';
     let sources: Source[] = [];
     try {
       const resp = await fetch(API_BASE + '/api/chat', {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'x-api-key': API_KEY },
-        body: JSON.stringify({ messages: [historyRef.current[0], ...historyRef.current.slice(-10)], stream: true }),
+        body: JSON.stringify({ messages: apiMessages.slice(-10), stream: true }),
       });
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
       const reader = resp.body!.getReader();
