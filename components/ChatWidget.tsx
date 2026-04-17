@@ -6,6 +6,24 @@ const API_BASE = 'https://lake-pond-rag.vercel.app';
 const API_KEY = 'd275ccb01df20ecb2b7e41ca724c2b49e0167480a7a9327af09e42d37469f991';
 const BRAND = '#3B82F6';
 
+const SYSTEM_PROMPT = `You are Lake Logic's diagnostic assistant for pond and lake problems. You are NOT a general knowledge bot. Your job is to act like an expert consultant conducting a diagnosis.
+
+CRITICAL RULES:
+1. NEVER dump a wall of information. Keep every response short (2-4 sentences max).
+2. When a user describes a problem (algae, murky water, fish kills, weeds, etc.), do NOT immediately list all possible causes or solutions. Instead, ASK ONE clarifying question at a time to narrow down the diagnosis.
+3. Follow a diagnostic flow:
+   - First: Acknowledge their concern briefly
+   - Then: Ask about what they are seeing (color, location, texture, smell)
+   - Then: Ask about their waterbody (size, depth, age, water source)
+   - Then: Ask about recent conditions (weather, rain, treatments, stocking)
+   - Then: Ask about their goals (fix it themselves vs professional help)
+   - Finally: Give a specific diagnosis and recommended next step
+4. Only after gathering enough info through questions (usually 3-5 questions), provide your diagnosis and a clear action plan.
+5. Always end diagnostic conversations by recommending they contact Lake Logic for a free site assessment: (816) 810-1081 or schedule at the contact form on this site.
+6. If someone asks a simple factual question (e.g. "what is aeration?"), you can answer directly but keep it brief.
+7. Use a friendly, professional tone. You represent Lake Logic, a Kansas City pond and lake management company.
+8. If someone shares a vague problem like "my pond looks bad" - ask what specifically looks off before proceeding.`;
+
 interface Source {
   n: number;
   title?: string;
@@ -28,7 +46,7 @@ function mdToHtml(md: string): string {
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
     .replace(/^[-*] (.+)$/gm, '<li>$1</li>')
     .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
-        .replace(/(<li>[\s\S]*<\/li>)/, '<ul class="cw-ul">$1</ul>')
+    .replace(/(<li>[\s\S]*<\/li>)/, '<ul class="cw-ul">$1</ul>')
     .replace(/\n{2,}/g, '<br/><br/>')
     .replace(/\n/g, '<br/>');
   return html;
@@ -53,7 +71,8 @@ export default function ChatWidget() {
   const handleOpen = () => {
     setOpen(true);
     if (!greeted) {
-      setMsgs([{ role: 'bot', content: 'Hi! Ask me anything about lake and pond management \u2014 algae, stocking, aeration, regulations.' }]);
+      setMsgs([{ role: 'bot', content: 'Hi! I\'m Lake Logic\'s pond diagnostic assistant. Tell me what\'s going on with your pond or lake and I\'ll help you figure out what\'s happening and what to do about it.' }]);
+      historyRef.current = [{ role: 'system', content: SYSTEM_PROMPT }];
       setGreeted(true);
     }
     setTimeout(() => inputRef.current?.focus(), 50);
@@ -64,26 +83,23 @@ export default function ChatWidget() {
     if (!text || loading) return;
     setInput('');
     setLoading(true);
-
     const userMsg: Msg = { role: 'user', content: text };
     setMsgs(prev => [...prev, userMsg]);
     historyRef.current.push({ role: 'user', content: text });
 
     let answer = '';
     let sources: Source[] = [];
-
     try {
       const resp = await fetch(API_BASE + '/api/chat', {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'x-api-key': API_KEY },
-        body: JSON.stringify({ messages: historyRef.current.slice(-8), stream: true }),
+        body: JSON.stringify({ messages: [historyRef.current[0], ...historyRef.current.slice(-10)], stream: true }),
       });
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
       const reader = resp.body!.getReader();
       const decoder = new TextDecoder();
       let buffer = '';
       let botAdded = false;
-
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
@@ -139,8 +155,8 @@ export default function ChatWidget() {
         <div className="absolute bottom-[76px] right-0 w-[400px] max-w-[calc(100vw-32px)] h-[580px] max-h-[calc(100vh-100px)] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-gray-200">
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 text-white" style={{ background: BRAND }}>
-            <span className="font-semibold text-[15px]">Ask Lake Logic</span>
-            <button onClick={() => setOpen(false)} className="text-white/80 hover:text-white text-xl leading-none bg-transparent border-none cursor-pointer">&times;</button>
+            <span className="font-semibold text-[15px]">Lake Logic Pond Diagnostic</span>
+            <button onClick={() => setOpen(false)} className="text-white/80 hover:text-white text-xl leading-none bg-transparent border-none cursor-pointer">×</button>
           </div>
           {/* Messages */}
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50">
@@ -183,7 +199,7 @@ export default function ChatWidget() {
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
-              placeholder="Ask about your pond or lake..."
+              placeholder="Describe what's going on with your pond..."
               rows={1}
               className="flex-1 border border-gray-300 rounded-xl px-3 py-2.5 text-sm outline-none focus:border-blue-500 resize-none max-h-[120px] font-[inherit]"
             />
