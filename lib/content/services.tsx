@@ -225,20 +225,17 @@ export const SERVICES: ServiceDef[] = [
           We typically recommend surveys every 2–3 years, or annually for intensively managed trophy fisheries. The result is a written report with Proportional Stock Density (PSD), Relative Stock Density (RSD), and targeted management recommendations.
         </p>
 
-        <h2>New Pond Stocking</h2>
+        <h2>Strategic Fish Stocking</h2>
         <p>
-          The classic Midwestern pond stocking ratio — originally developed by Kansas and Missouri state fisheries biologists — is:
+          Stocking plans are customized for each waterbody based on size, depth profile, existing habitat, fish population data, forage availability, water quality, and management goals. We do not use one-size-fits-all formulas — because the right species, quantities, and timing depend on what the assessment tells us, not a generic per-acre ratio.
         </p>
-        <ul>
-          <li><strong>500 bluegill per acre</strong> (fall, 2–3 inch fingerlings)</li>
-          <li><strong>50–100 channel catfish per acre</strong> (spring following bluegill)</li>
-          <li><strong>100 largemouth bass per acre</strong> (late spring/early summer, once bluegill have spawned)</li>
-          <li><strong>Optional: 50 redear sunfish per acre</strong> (shellcracker, excellent predator of ramshorn snails and trematode vectors)</li>
-        </ul>
+        <p>
+          We work with 15+ species across gamefish, panfish, forage, and biological control categories — from fingerling largemouth bass and bluegill to walleye, muskie, grass carp, and beyond. Each serves a specific role in a managed fishery.
+        </p>
 
         <div className="callout">
-          <div className="callout-title">Grass Carp for Weed Control</div>
-          <p className="!mb-0">Sterile triploid grass carp stocked at 5 fish per vegetated acre provide durable biological control of submerged vegetation. A permit is required in Kansas; Missouri allows them freely. Fertile diploid grass carp are prohibited in both states.</p>
+          <div className="callout-title">Explore Our Full Stocking Species Guide</div>
+          <p className="!mb-0">See detailed profiles for every species we stock — including best-fit scenarios, common use cases, and management considerations. <a href="/services/fish-stocking">View the Fish Stocking Options guide &rarr;</a></p>
         </div>
 
         <h2>Established Pond Adjustments</h2>
